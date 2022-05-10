@@ -382,7 +382,7 @@ function bloggerImport(backupXmlFile, outputDir) {
 
           var alias = url.replace(/^.*\/\/[^\/]+/, "");
 
-          fileHeader = `---\ntitle: '${title}'\ndate: ${published}\ndraft: ${draft}\nurl: ${alias}\n${tagString}---\n`;
+          fileHeader = `---\ntitle: '${title}'\ndate: '${published}'\ndraft: ${draft}\nurl: ${alias}\n${tagString}---\n`;
           fileContent = `${fileHeader}\n${markdown}`;
 
           postMap.header = fileHeader;
