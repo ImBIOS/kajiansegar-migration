@@ -52,7 +52,7 @@ if (mergeComments == "m") {
   console.log(`INFO: Comments requested to be merged along with posts. (m)`);
 } else {
   console.log(
-    `INFO: Comments requested to be a separate .md file(m - default)`
+    `INFO: Comments requested to be a separate .mdx file(m - default)`
   );
 }
 
@@ -155,9 +155,9 @@ function wordpressImport(backupXmlFile, outputDir) {
         }
 
         var pmap = { fname: "", comments: [] };
-        pmap.fname = outputDir + "/" + fname + "-comments.md";
+        pmap.fname = outputDir + "/" + fname + "-comments.mdx";
 
-        fname = outputDir + "/" + fname + ".md";
+        fname = outputDir + "/" + fname + ".mdx";
         pmap.postName = fname;
         console.log(`fname: '${fname}'`);
 
@@ -339,10 +339,10 @@ function bloggerImport(backupXmlFile, outputDir) {
             url = urlLink[0]["$"].href;
           }
 
-          var fname = outputDir + "/" + path.basename(sanitizedTitle) + ".md";
+          var fname = outputDir + "/" + path.basename(sanitizedTitle) + ".mdx";
           console.log(fname);
           postMap.postName = fname;
-          postMap.fname = fname.replace(".md", "-comments.md");
+          postMap.fname = fname.replace(".mdx", "-comments.mdx");
           postMap.comments = [];
 
           if (entry.content && entry.content[0] && entry.content[0]["_"]) {
@@ -382,7 +382,7 @@ function bloggerImport(backupXmlFile, outputDir) {
 
           var alias = url.replace(/^.*\/\/[^\/]+/, "");
 
-          fileHeader = `---\ntitle: '${title}'\ndate: '${published}'\ndraft: ${draft}\nurl: ${alias}\n${tagString}---\n`;
+          fileHeader = `---\ntitle: '${title}'\ndate: '${published}'\ndraft: ${draft}\n${tagString}---\n`;
           fileContent = `${fileHeader}\n${markdown}`;
 
           postMap.header = fileHeader;
